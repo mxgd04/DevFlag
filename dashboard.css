@@ -87,7 +87,6 @@
 .stat-badge--down    { background: rgba(232,68,90,0.12);  color: #e8445a; }
 .stat-badge--neutral { background: rgba(26,143,227,0.12); color: var(--accent); }
 
-/* ── MAIN DASHBOARD GRID ─────────────────────────────────── */
 .dash-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -107,7 +106,6 @@
 
 .dash-panel:hover { border-color: rgba(26,143,227,0.2); }
 
-/* Wide panel spans both columns */
 .dash-panel--wide {
   grid-column: 1 / -1;
   animation-delay: 0.3s;
@@ -243,7 +241,6 @@
 .progress-bar--orange { background: linear-gradient(90deg, #f0a843, #c07820); }
 .progress-bar--red    { background: linear-gradient(90deg, #e8445a, #b02040); }
 
-/* ── RECOMMENDED GRID ────────────────────────────────────── */
 .rec-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));

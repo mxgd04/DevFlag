@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevFlag – Advanced SQL Injection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="challenge.css"/>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">&lt;/&gt;</div>
+      <div class="logo-text">Dev<span>Flag</span></div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="nav-item active">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/>
+        </svg>
+        Home
+      </a>
+      <a href="dashboard.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="ranking.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+        </svg>
+        Ranking
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="btn-auth btn-login">Login</a>
+      <a href="signup.html" class="btn-auth btn-register">Register</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="breadcrumb">
+        <a href="index.html" class="home-link">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <strong>Advanced SQL Injection</strong>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn-bookmark" id="btn-bookmark" onclick="toggleBookmark()" aria-label="Save challenge">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+          </svg>
+        </button>
+        <a href="add-challenge.html" class="btn-add">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+          Add Challenge
+        </a>
+      </div>
+    </header>
+
+    <!-- ── PAGE BODY ─────────────────────────────────────── -->
+    <div class="detail-layout">
+
+      <!-- ══ LEFT: main content ═══════════════════════════ -->
+      <div class="detail-main">
+
+        <!-- Hero banner -->
+        <div class="challenge-hero" style="animation-delay:0.04s">
+          <div class="hero-illus">🛡️</div>
+          <div class="hero-body">
+            <div class="hero-meta-top">
+              <span class="diff-badge diff-badge--medium">Medium</span>
+              <span class="cat-badge">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="12" height="12">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Web Security
+              </span>
+              <span class="tag-chip">sql</span>
+              <span class="tag-chip">injection</span>
+              <span class="tag-chip">intermediate</span>
+            </div>
+            <h1 class="hero-title">Advanced SQL Injection</h1>
+            <p class="hero-subtitle">Master the art of exploiting vulnerable SQL queries to bypass authentication, extract sensitive data, and understand how to properly defend against these attacks.</p>
+          </div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="stats-row" style="animation-delay:0.08s">
+          <div class="stat-chip">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span class="stat-chip-val">500 XP</span>
+            <span class="stat-chip-label">Reward</span>
+          </div>
+          <div class="stat-chip">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+            <span class="stat-chip-val">120</span>
+            <span class="stat-chip-label">Completed</span>
+          </div>
+          <div class="stat-chip">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span class="stat-chip-val">~45 min</span>
+            <span class="stat-chip-label">Est. time</span>
+          </div>
+          <div class="stat-chip">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span class="stat-chip-val">68%</span>
+            <span class="stat-chip-label">Success rate</span>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="detail-section" style="animation-delay:0.12s">
+          <div class="section-header">
+            <span class="section-icon">📋</span>
+            <h2 class="section-title">Description</h2>
+          </div>
+          <div class="section-body prose">
+            <p>In this challenge you will face a deliberately vulnerable web application that relies on unsafe SQL queries to authenticate users and retrieve data. Your objective is to craft payloads that exploit these weaknesses.</p>
+            <p>You will need to:</p>
+            <ul>
+              <li>Identify entry points susceptible to SQL injection</li>
+              <li>Bypass the login form using a classic <code>' OR '1'='1</code> payload</li>
+              <li>Extract the list of users and their hashed passwords from the database</li>
+              <li>Escalate your access to retrieve the hidden flag stored in the <code>flags</code> table</li>
+            </ul>
+            <p>Once you have retrieved the flag, submit it in the field below. Good luck, hacker.</p>
+          </div>
+        </div>
+
+        <!-- Hints (collapsible) -->
+        <div class="detail-section" style="animation-delay:0.16s">
+          <div class="section-header">
+            <span class="section-icon">💡</span>
+            <h2 class="section-title">Hints</h2>
+            <span class="hint-cost">–50 XP each</span>
+          </div>
+          <div class="hints-list">
+            <div class="hint-item" id="hint-1">
+              <button class="hint-toggle" onclick="revealHint(1)">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14">
+                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Hint #1 — Unlock for 50 XP
+              </button>
+              <div class="hint-content" id="hint-content-1" style="display:none">
+                Try appending a single quote <code>'</code> to the username field and observe any error messages returned by the server.
+              </div>
+            </div>
+            <div class="hint-item" id="hint-2">
+              <button class="hint-toggle" onclick="revealHint(2)">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14">
+                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Hint #2 — Unlock for 50 XP
+              </button>
+              <div class="hint-content" id="hint-content-2" style="display:none">
+                Use a <code>UNION SELECT</code> statement to enumerate the number of columns in the original query before extracting data.
+              </div>
+            </div>
+            <div class="hint-item" id="hint-3">
+              <button class="hint-toggle" onclick="revealHint(3)">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14">
+                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Hint #3 — Unlock for 50 XP
+              </button>
+              <div class="hint-content" id="hint-content-3" style="display:none">
+                The flag table is named <code>flags</code> and has two columns: <code>id</code> and <code>value</code>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flag submission -->
+        <div class="detail-section" style="animation-delay:0.20s">
+          <div class="section-header">
+            <span class="section-icon">🚩</span>
+            <h2 class="section-title">Submit Flag</h2>
+          </div>
+          <div class="flag-form">
+            <div class="flag-input-wrap">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>
+              </svg>
+              <input type="text" id="flag-input" placeholder="FLAG{...}" spellcheck="false" autocomplete="off"/>
+            </div>
+            <button class="btn-submit-flag" onclick="submitFlag()">
+              Submit
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </div>
+          <div class="flag-feedback" id="flag-feedback"></div>
+        </div>
+
+      </div><!-- /detail-main -->
+
+      <!-- ══ RIGHT: sidebar info ══════════════════════════ -->
+      <aside class="detail-side">
+
+        <!-- File download -->
+        <div class="side-panel" style="animation-delay:0.08s">
+          <div class="side-panel-title">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Challenge File
+          </div>
+          <div class="file-card">
+            <div class="file-card-icon">🗜️</div>
+            <div class="file-card-info">
+              <span class="file-card-name">sql_injection_challenge.zip</span>
+              <span class="file-card-meta">2.4 MB · ZIP archive</span>
+            </div>
+          </div>
+          <a href="#" class="btn-download" download>
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download File
+          </a>
+        </div>
+
+        <!-- Challenge info -->
+        <div class="side-panel" style="animation-delay:0.12s">
+          <div class="side-panel-title">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            Challenge Info
+          </div>
+          <ul class="info-list">
+            <li class="info-row">
+              <span class="info-key">Category</span>
+              <span class="info-val">🛡️ Web Security</span>
+            </li>
+            <li class="info-row">
+              <span class="info-key">Difficulty</span>
+              <span class="info-val diff-medium">Medium</span>
+            </li>
+            <li class="info-row">
+              <span class="info-key">Points</span>
+              <span class="info-val xp-val">500 XP</span>
+            </li>
+            <li class="info-row">
+              <span class="info-key">Est. Time</span>
+              <span class="info-val">~45 min</span>
+            </li>
+            <li class="info-row">
+              <span class="info-key">Author</span>
+              <span class="info-val">@devflag_admin</span>
+            </li>
+            <li class="info-row">
+              <span class="info-key">Released</span>
+              <span class="info-val">Mar 10, 2026</span>
+            </li>
+            <li class="info-row">
+              <span class="info-key">Solves</span>
+              <span class="info-val">120 users</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Top solvers -->
+        <div class="side-panel" style="animation-delay:0.16s">
+          <div class="side-panel-title">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15">
+              <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+            </svg>
+            First Solvers
+          </div>
+          <ul class="solvers-list">
+            <li class="solver-row">
+              <span class="solver-rank rank-1">1</span>
+              <span class="solver-avatar">🦊</span>
+              <span class="solver-name">h4x0r_fox</span>
+              <span class="solver-time">12 min</span>
+            </li>
+            <li class="solver-row">
+              <span class="solver-rank rank-2">2</span>
+              <span class="solver-avatar">🐺</span>
+              <span class="solver-name">wolfpack99</span>
+              <span class="solver-time">18 min</span>
+            </li>
+            <li class="solver-row">
+              <span class="solver-rank rank-3">3</span>
+              <span class="solver-avatar">🦅</span>
+              <span class="solver-name">eagleye</span>
+              <span class="solver-time">24 min</span>
+            </li>
+            <li class="solver-row">
+              <span class="solver-rank">4</span>
+              <span class="solver-avatar">🐉</span>
+              <span class="solver-name">dragonfire</span>
+              <span class="solver-time">31 min</span>
+            </li>
+            <li class="solver-row">
+              <span class="solver-rank">5</span>
+              <span class="solver-avatar">🎯</span>
+              <span class="solver-name">bullseye_x</span>
+              <span class="solver-time">37 min</span>
+            </li>
+          </ul>
+        </div>
+
+      </aside><!-- /detail-side -->
+
+    </div><!-- /detail-layout -->
+
+  </main>
+</body>
+</html>

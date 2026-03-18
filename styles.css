@@ -1,13 +1,12 @@
-/* ── VARIABLES ──────────────────────────────────────────── */
 :root {
   --bg-base:      #0d1117;
   --bg-sidebar:   #111820;
   --bg-card:      #151d28;
   --bg-card-h:    #1a2536;
   --border:       #1e2d40;
-  --border-glow:  #1e6fa8;
-  --accent:       #1a8fe3;
-  --accent2:      #0ecba1;
+  --border-glow:  #531ea8;
+  --accent:       #7c29e9;
+  --accent2:      #d17ed1;
   --text-primary: #e4eaf4;
   --text-muted:   #5a7490;
   --text-dim:     #3a5470;
@@ -22,8 +21,7 @@
   --sidebar-w:    230px;
 }
 
-/* ── RESET ──────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *{ box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
 
 body {
@@ -35,20 +33,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── ANIMATED GRID BACKGROUND ───────────────────────────── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(26,143,227,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,143,227,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ── SIDEBAR ────────────────────────────────────────────── */
 .sidebar {
   width: var(--sidebar-w);
   min-height: 100vh;
@@ -161,6 +145,7 @@ body::before {
 }
 
 .btn-login {
+  text-align: center;
   background: transparent;
   border: 1px solid var(--border-glow);
   color: var(--accent);
@@ -168,17 +153,18 @@ body::before {
 .btn-login:hover { background: rgba(26,143,227,0.08); }
 
 .btn-register {
+  text-align: center;
   background: var(--accent);
   border: 1px solid var(--accent);
   color: #fff;
   box-shadow: 0 0 14px rgba(26,143,227,0.3);
 }
+
 .btn-register:hover {
-  background: #1a7fcf;
+  background: #781acf;
   box-shadow: 0 0 20px rgba(26,143,227,0.5);
 }
 
-/* ── MAIN CONTENT ───────────────────────────────────────── */
 .main {
   margin-left: var(--sidebar-w);
   flex: 1;
@@ -189,7 +175,6 @@ body::before {
   z-index: 1;
 }
 
-/* ── TOPBAR ─────────────────────────────────────────────── */
 .topbar {
   display: flex;
   align-items: center;
@@ -230,13 +215,12 @@ body::before {
   letter-spacing: 0.3px;
 }
 .btn-add:hover {
-  background: #1a7fcf;
+  background: #ac4fe2;
   box-shadow: 0 0 26px rgba(26,143,227,0.55);
   transform: translateY(-1px);
 }
 .btn-add svg { width: 16px; height: 16px; }
 
-/* ── FILTERS ────────────────────────────────────────────── */
 .filters-bar {
   display: flex;
   gap: 14px;
@@ -286,7 +270,6 @@ body::before {
 }
 .search-box input::placeholder { color: var(--text-dim); }
 
-/* ── CARD GRID ──────────────────────────────────────────── */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -294,7 +277,6 @@ body::before {
   padding: 24px 32px 40px;
 }
 
-/* ── CHALLENGE CARD ─────────────────────────────────────── */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -305,18 +287,6 @@ body::before {
   transition: all 0.25s;
   position: relative;
   animation: fadeUp 0.4s ease both;
-}
-
-.card:nth-child(1) { animation-delay: 0.05s; }
-.card:nth-child(2) { animation-delay: 0.10s; }
-.card:nth-child(3) { animation-delay: 0.15s; }
-.card:nth-child(4) { animation-delay: 0.20s; }
-.card:nth-child(5) { animation-delay: 0.25s; }
-.card:nth-child(6) { animation-delay: 0.30s; }
-
-@keyframes fadeUp {
-  from { opacity:0; transform: translateY(16px); }
-  to   { opacity:1; transform: translateY(0); }
 }
 
 .card:hover {
@@ -343,11 +313,9 @@ body::before {
   display: flex; align-items: center; justify-content: center;
 }
 
-/* Card illustration icons */
-.illus-tree   { font-size: 52px; filter: drop-shadow(0 0 12px rgba(26,143,227,0.4)); }
-.illus-shield { font-size: 52px; filter: drop-shadow(0 0 12px rgba(14,203,161,0.4)); }
-.illus-neural { font-size: 52px; filter: drop-shadow(0 0 12px rgba(240,168,67,0.4)); }
-.illus-block  { font-size: 52px; filter: drop-shadow(0 0 12px rgba(232,68,90,0.4)); }
+.lock   { font-size: 52px; filter: drop-shadow(0 0 12px rgba(26,143,227,0.4)); }
+.shield { font-size: 52px; filter: drop-shadow(0 0 12px rgba(14,203,161,0.4)); }
+.puzzle  { font-size: 52px; filter: drop-shadow(0 0 12px rgba(232,68,90,0.4)); }
 
 .card-actions {
   display: flex;
@@ -367,8 +335,6 @@ body::before {
   display: flex;
   align-items: center;
 }
-.btn-icon:hover { color: var(--text-primary); }
-.btn-icon.saved { color: var(--accent); }
 .btn-icon svg { width: 16px; height: 16px; }
 
 .card-body {
@@ -419,27 +385,19 @@ body::before {
 .meta-value.difficulty-hard   { color: var(--badge-hard); }
 .meta-value.xp                { color: var(--accent); }
 
-/* ── SCROLLBAR ──────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg-base); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-/* ── SIDEBAR DECORATIVE ─────────────────────────────────── */
 .sidebar-deco {
   padding: 16px 12px;
   opacity: 0.15;
 }
 
-
-
-/* ── RESIZE / REFLOW ANIMATIONS ─────────────────────────── */
-
-/* Grid transitions smoothly when columns change */
 .cards-grid {
   transition: grid-template-columns 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Each card animates its own size and position during reflow */
 .card {
   transition:
     all 0.25s ease,
@@ -450,26 +408,6 @@ body::before {
   will-change: transform, width, opacity;
 }
 
-/* Subtle scale pulse when a card reflows into a new column */
-@keyframes reflow {
-  0%   { transform: scale(0.97); opacity: 0.7; }
-  60%  { transform: scale(1.01); }
-  100% { transform: scale(1);    opacity: 1; }
-}
-
-/* Applied via JS on resize — class toggled each time columns change */
-.card.reflow {
-  animation: reflow 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
-.card.reflow:nth-child(1) { animation-delay: 0.00s; }
-.card.reflow:nth-child(2) { animation-delay: 0.04s; }
-.card.reflow:nth-child(3) { animation-delay: 0.08s; }
-.card.reflow:nth-child(4) { animation-delay: 0.12s; }
-.card.reflow:nth-child(5) { animation-delay: 0.16s; }
-.card.reflow:nth-child(6) { animation-delay: 0.20s; }
-
-/* ── BREADCRUMB LINKS (shared) ──────────────────────────── */
 .home-link {
   color: var(--text-muted);
   text-decoration: none;
@@ -482,4 +420,9 @@ body::before {
   color: var(--text-dim);
   margin: 0 8px;
   font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

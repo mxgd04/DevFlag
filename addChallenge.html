@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevFlag – Add Challenge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="addChallenge.css"/>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">&lt;/&gt;</div>
+      <div class="logo-text">Dev<span>Flag</span></div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/>
+        </svg>
+        Home
+      </a>
+      <a href="dashboard.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="ranking.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+        </svg>
+        Ranking
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="btn-auth btn-login">Login</a>
+      <a href="signup.html" class="btn-auth btn-register">Register</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <div class="breadcrumb">
+        <a href="index.html" class="home-link">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <strong>Add Challenge</strong>
+      </div>
+    </header>
+
+    <div class="form-layout">
+
+      <div class="form-col form-col--main">
+
+        <div class="ac-section" style="animation-delay:0.05s">
+          <label class="ac-label" for="ch-title">
+            Challenge Title
+            <span class="ac-required">*</span>
+          </label>
+          <div class="ac-input-wrap">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+            <input type="text" id="ch-title" name="title"
+                   placeholder="e.g. Advanced Buffer Overflow"
+                   maxlength="80" required />
+            <span class="char-counter" id="title-counter">0 / 80</span>
+          </div>
+        </div>
+
+        <div class="ac-section" style="animation-delay:0.10s">
+          <label class="ac-label" for="ch-desc">
+            Description
+            <span class="ac-required">*</span>
+          </label>
+          <div class="ac-textarea-wrap">
+            <textarea id="ch-desc" name="description" rows="5" maxlength="600" required
+              placeholder="Describe the objectives, context and what participants need to accomplish..."></textarea>
+            <span class="char-counter textarea-counter" id="desc-counter">0 / 600</span>
+          </div>
+        </div>
+
+        <div class="ac-row" style="animation-delay:0.15s">
+
+          <div class="ac-section">
+            <label class="ac-label">
+              Difficulty
+              <span class="ac-required">*</span>
+            </label>
+            <div class="pill-group" id="difficulty-group">
+              <button type="button" class="pill pill--easy"   data-value="easy" >Easy</button>
+              <button type="button" class="pill pill--medium" data-value="medium" >Medium</button>
+              <button type="button" class="pill pill--hard"   data-value="hard"   >Hard</button>
+            </div>
+            <input type="hidden" id="difficulty-val" name="difficulty"/>
+          </div>
+
+          <div class="ac-section">
+            <label class="ac-label" for="ch-points">Points (XP)</label>
+            <div class="ac-input-wrap">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <input type="number" id="ch-points" name="points"
+                     placeholder="500" min="50" max="5000" step="50"/>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="ac-section" style="animation-delay:0.20s">
+          <label class="ac-label">
+            Category
+            <span class="ac-required">*</span>
+          </label>
+          <div class="category-grid" id="category-group">
+            <button type="button" class="cat-pill" data-value="Reversing" ><span>🛡️</span>Reversing</button>
+            <button type="button" class="cat-pill" data-value="cryptography"  ><span>🔐</span>Cryptography</button>
+            <button type="button" class="cat-pill" data-value="steganography" ><span>🧩</span>Steganography</button>
+          </div>
+          <input type="hidden" id="category-val" name="category"/>
+        </div>
+
+        <!-- Tags -->
+        <div class="ac-section" style="animation-delay:0.25s">
+          <label class="ac-label" for="ch-tags">
+            Tags
+            <span class="ac-label-hint">— comma separated</span>
+          </label>
+          <div class="ac-input-wrap">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/>
+              <line x1="7" y1="7" x2="7.01" y2="7"/>
+            </svg>
+            <input type="text" id="ch-tags" name="tags"
+                   placeholder="e.g. sql, injection, beginner"/>
+          </div>
+          <div class="tag-preview" id="tag-preview"></div>
+        </div>
+
+      </div>
+
+      <div class="form-col form-col--side">
+
+        <div class="ac-section" style="animation-delay:0.10s">
+          <label class="ac-label">Challenge File</label>
+          <div class="dropzone" id="dropzone"
+               ondragover="onDragOver(event)"
+               ondragleave="onDragLeave(event)"
+               ondrop="onDrop(event)">
+
+            <div class="dropzone-inner" id="dropzone-inner">
+              <div class="dropzone-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <p class="dropzone-text">Drag &amp; drop your file here</p>
+              <p class="dropzone-sub">or</p>
+              <label class="btn-browse" for="file-input">Browse File</label>
+              <input type="file" id="file-input" name="challengeFile"
+                     accept=".zip,.tar,.gz,.pdf,.md,.txt,.py,.js,.java,.c,.cpp"
+                     style="display:none"
+                     onchange="onFileSelect(this)"/>
+              <p class="dropzone-hint">.zip .tar.gz .pdf .md .py .js .java .c .cpp — max 50 MB</p>
+            </div>
+
+            <div class="file-selected" id="file-selected" style="display:none">
+              <div class="file-icon">📄</div>
+              <div class="file-info">
+                <span class="file-name" id="file-name"></span>
+                <span class="file-size" id="file-size"></span>
+              </div>
+              <button type="button" class="btn-remove-file" onclick="removeFile()" aria-label="Remove">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ac-actions" style="animation-delay:0.30s">
+          <a href="index.html" class="btn-cancel">Cancel</a>
+          <button type="button" class="btn-publish" onclick="publish()">
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Publish
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

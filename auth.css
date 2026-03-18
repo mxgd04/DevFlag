@@ -1,0 +1,216 @@
+:root {
+  --bg-base:      #0d1117;
+  --bg-panel:     #111820;
+  --bg-input:     #0d1520;
+  --bg-input-f:   #101c2a;
+  --border:       #1e2d40;
+  --border-glow:  #1e6fa8;
+  --border-focus: #1a8fe3;
+  --accent:       #1a8fe3;
+  --accent2:      #0ecba1;
+  --accent-dim:   rgba(26,143,227,0.12);
+  --text-primary: #e4eaf4;
+  --text-muted:   #5a7490;
+  --text-dim:     #3a5470;
+  --error:        #e8445a;
+  --success:      #0ecba1;
+  --font-mono:    'Share Tech Mono', monospace;
+  --font-ui:      'Exo 2', sans-serif;
+  --font-head:    'Rajdhani', sans-serif;
+  --radius:       10px;
+}
+
+*, * { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.auth-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.logo-icon {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 18px rgba(26,143,227,0.4);
+}
+
+.logo-text {
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.logo-text span { color: var(--accent); }
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.auth-header {
+  margin-bottom: 32px;
+}
+
+.auth-header h1 {
+  font-family: var(--font-head);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  animation: fadeUp 0.4s ease both;
+}
+
+.auth-header p {
+  font-size: 14px;
+  color: var(--text-muted);
+  animation: fadeUp 0.4s ease 0.06s both;
+}
+
+.auth-header p a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.auth-header p a:hover { text-decoration: underline; }
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 7px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+.input-wrap svg {
+  position: absolute;
+  left: 14px;
+  width: 16px; height: 16px;
+  color: var(--text-dim);
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.input-wrap input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.input-wrap input::placeholder { color: var(--text-dim); }
+
+.input-wrap input:focus {
+  border-color: var(--border-focus);
+  background: var(--bg-input-f);
+  box-shadow: 0 0 0 3px rgba(26,143,227,0.1);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  animation: fadeUp 0.4s ease 0.28s both;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: var(--accent);
+  margin-top: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkbox-group label {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.checkbox-group label a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.checkbox-group label a:hover { text-decoration: underline; }
+
+.btn-submit {
+  width: 100%;
+  padding: 13px;
+  margin-top: 8px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 0 20px rgba(26,143,227,0.35);
+  animation: fadeUp 0.4s ease 0.32s both;
+}
+
+.btn-submit:hover {
+  background: #1a7fcf;
+  box-shadow: 0 0 30px rgba(26,143,227,0.55);
+  transform: translateY(-1px);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}

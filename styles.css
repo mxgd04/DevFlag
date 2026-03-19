@@ -4,9 +4,9 @@
   --bg-card:      #151d28;
   --bg-card-h:    #1a2536;
   --border:       #1e2d40;
-  --border-glow:  #531ea8;
-  --accent:       #7c29e9;
-  --accent2:      #d17ed1;
+  --border-glow:  #00a745;
+  --accent:       #09714B;
+  --accent2:      #6ef881;
   --text-primary: #e4eaf4;
   --text-muted:   #5a7490;
   --text-dim:     #3a5470;
@@ -161,7 +161,7 @@ body {
 }
 
 .btn-register:hover {
-  background: #781acf;
+  background: #0b530f;
   box-shadow: 0 0 20px rgba(26,143,227,0.5);
 }
 
@@ -215,7 +215,7 @@ body {
   letter-spacing: 0.3px;
 }
 .btn-add:hover {
-  background: #ac4fe2;
+  background: #0b530f;
   box-shadow: 0 0 26px rgba(26,143,227,0.55);
   transform: translateY(-1px);
 }

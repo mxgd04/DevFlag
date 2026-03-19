@@ -43,12 +43,11 @@
 
   <main class="main">
 
-    <!-- Topbar -->
     <header class="topbar">
       <div class="breadcrumb">
         <a href="index.html" class="home-link">Home</a>
         <span class="breadcrumb-sep">/</span>
-        <strong>Advanced SQL Injection</strong>
+        <strong>The Centinel</strong>
       </div>
       <div class="topbar-actions">
         <button class="btn-bookmark" id="btn-bookmark" onclick="toggleBookmark()" aria-label="Save challenge">
@@ -65,13 +64,10 @@
       </div>
     </header>
 
-    <!-- ── PAGE BODY ─────────────────────────────────────── -->
     <div class="detail-layout">
 
-      <!-- ══ LEFT: main content ═══════════════════════════ -->
       <div class="detail-main">
 
-        <!-- Hero banner -->
         <div class="challenge-hero" style="animation-delay:0.04s">
           <div class="hero-illus">🛡️</div>
           <div class="hero-body">
@@ -81,18 +77,16 @@
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="12" height="12">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
-                Web Security
+                Reversing
               </span>
-              <span class="tag-chip">sql</span>
-              <span class="tag-chip">injection</span>
+              <span class="tag-chip">coding</span>
               <span class="tag-chip">intermediate</span>
             </div>
-            <h1 class="hero-title">Advanced SQL Injection</h1>
-            <p class="hero-subtitle">Master the art of exploiting vulnerable SQL queries to bypass authentication, extract sensitive data, and understand how to properly defend against these attacks.</p>
+            <h1 class="hero-title">The Centinel</h1>
+            <p class="hero-subtitle">Lorem ipsum dolor, consectetur adipiscing elit, seda shorturunus tite das.</p>
           </div>
         </div>
 
-        <!-- Stats row -->
         <div class="stats-row" style="animation-delay:0.08s">
           <div class="stat-chip">
             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -113,7 +107,7 @@
             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
             </svg>
-            <span class="stat-chip-val">~45 min</span>
+            <span class="stat-chip-val">~30 min</span>
             <span class="stat-chip-label">Est. time</span>
           </div>
           <div class="stat-chip">
@@ -126,70 +120,16 @@
           </div>
         </div>
 
-        <!-- Description -->
         <div class="detail-section" style="animation-delay:0.12s">
           <div class="section-header">
             <span class="section-icon">📋</span>
             <h2 class="section-title">Description</h2>
           </div>
           <div class="section-body prose">
-            <p>In this challenge you will face a deliberately vulnerable web application that relies on unsafe SQL queries to authenticate users and retrieve data. Your objective is to craft payloads that exploit these weaknesses.</p>
-            <p>You will need to:</p>
-            <ul>
-              <li>Identify entry points susceptible to SQL injection</li>
-              <li>Bypass the login form using a classic <code>' OR '1'='1</code> payload</li>
-              <li>Extract the list of users and their hashed passwords from the database</li>
-              <li>Escalate your access to retrieve the hidden flag stored in the <code>flags</code> table</li>
-            </ul>
-            <p>Once you have retrieved the flag, submit it in the field below. Good luck, hacker.</p>
+            <p>Lorem ipsum dolor, consectetur adipiscing elit, seda shorturunus tite das.</p>
           </div>
         </div>
 
-        <!-- Hints (collapsible) -->
-        <div class="detail-section" style="animation-delay:0.16s">
-          <div class="section-header">
-            <span class="section-icon">💡</span>
-            <h2 class="section-title">Hints</h2>
-            <span class="hint-cost">–50 XP each</span>
-          </div>
-          <div class="hints-list">
-            <div class="hint-item" id="hint-1">
-              <button class="hint-toggle" onclick="revealHint(1)">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14">
-                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-                </svg>
-                Hint #1 — Unlock for 50 XP
-              </button>
-              <div class="hint-content" id="hint-content-1" style="display:none">
-                Try appending a single quote <code>'</code> to the username field and observe any error messages returned by the server.
-              </div>
-            </div>
-            <div class="hint-item" id="hint-2">
-              <button class="hint-toggle" onclick="revealHint(2)">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14">
-                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-                </svg>
-                Hint #2 — Unlock for 50 XP
-              </button>
-              <div class="hint-content" id="hint-content-2" style="display:none">
-                Use a <code>UNION SELECT</code> statement to enumerate the number of columns in the original query before extracting data.
-              </div>
-            </div>
-            <div class="hint-item" id="hint-3">
-              <button class="hint-toggle" onclick="revealHint(3)">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14">
-                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-                </svg>
-                Hint #3 — Unlock for 50 XP
-              </button>
-              <div class="hint-content" id="hint-content-3" style="display:none">
-                The flag table is named <code>flags</code> and has two columns: <code>id</code> and <code>value</code>.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Flag submission -->
         <div class="detail-section" style="animation-delay:0.20s">
           <div class="section-header">
             <span class="section-icon">🚩</span>
@@ -212,9 +152,8 @@
           <div class="flag-feedback" id="flag-feedback"></div>
         </div>
 
-      </div><!-- /detail-main -->
+      </div>
 
-      <!-- ══ RIGHT: sidebar info ══════════════════════════ -->
       <aside class="detail-side">
 
         <!-- File download -->
@@ -228,9 +167,8 @@
             Challenge File
           </div>
           <div class="file-card">
-            <div class="file-card-icon">🗜️</div>
             <div class="file-card-info">
-              <span class="file-card-name">sql_injection_challenge.zip</span>
+              <span class="file-card-name">the_centinel_challenge.zip</span>
               <span class="file-card-meta">2.4 MB · ZIP archive</span>
             </div>
           </div>
@@ -255,7 +193,7 @@
           <ul class="info-list">
             <li class="info-row">
               <span class="info-key">Category</span>
-              <span class="info-val">🛡️ Web Security</span>
+              <span class="info-val">🛡️ Reversing</span>
             </li>
             <li class="info-row">
               <span class="info-key">Difficulty</span>
@@ -267,7 +205,7 @@
             </li>
             <li class="info-row">
               <span class="info-key">Est. Time</span>
-              <span class="info-val">~45 min</span>
+              <span class="info-val">~30 min</span>
             </li>
             <li class="info-row">
               <span class="info-key">Author</span>
@@ -317,18 +255,12 @@
               <span class="solver-name">dragonfire</span>
               <span class="solver-time">31 min</span>
             </li>
-            <li class="solver-row">
-              <span class="solver-rank">5</span>
-              <span class="solver-avatar">🎯</span>
-              <span class="solver-name">bullseye_x</span>
-              <span class="solver-time">37 min</span>
-            </li>
           </ul>
         </div>
 
-      </aside><!-- /detail-side -->
+      </aside>
 
-    </div><!-- /detail-layout -->
+    </div>
 
   </main>
 </body>

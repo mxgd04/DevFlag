@@ -59,14 +59,6 @@
   overflow: hidden;
 }
 
-.challenge-hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-}
-
 .hero-illus {
   font-size: 64px;
   line-height: 1;
@@ -140,7 +132,7 @@
 
 .stats-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   animation: fadeUp 0.4s ease both;
 }
@@ -280,21 +272,8 @@
   white-space: nowrap;
 }
 .btn-submit-flag svg { width: 15px; height: 15px; }
-.btn-submit-flag:hover { background: #1a7fcf; box-shadow: 0 0 22px rgba(26,143,227,0.5); transform: translateY(-1px); }
-.btn-submit-flag:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-submit-flag:hover { background: #0b530f; box-shadow: 0 0 22px #09714B; transform: translateY(-1px); }
 
-.flag-feedback { margin-top: 10px; font-size: 13px; font-family: var(--font-mono); min-height: 20px; }
-.fb-correct { color: #0ecba1; }
-.fb-wrong   { color: #e8445a; }
-
-@keyframes shake {
-  0%,100% { transform: translateX(0); }
-  20%,60% { transform: translateX(-6px); }
-  40%,80% { transform: translateX(6px); }
-}
-.shake { animation: shake 0.4s ease; }
-
-/* ── RIGHT SIDEBAR ──────────────────────────────────────── */
 .detail-side {
   display: flex;
   flex-direction: column;
@@ -399,7 +378,6 @@
   padding: 8px 10px;
   border-radius: 8px;
   background: var(--bg-base);
-  transition: background 0.2s;
 }
 .solver-row:hover { background: rgba(26,143,227,0.05); }
 
@@ -424,29 +402,10 @@
   color: var(--text-primary);
   letter-spacing: 0.2px;
 }
+
 .solver-time {
   font-size: 11px;
   color: var(--text-dim);
   font-family: var(--font-mono);
   white-space: nowrap;
 }
-
-.toast {
-  position: fixed;
-  bottom: 28px; right: 28px;
-  background: #111820;
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--toast-color, var(--accent));
-  border-radius: 10px;
-  padding: 13px 20px;
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-primary);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
-  z-index: 9999;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.25s, transform 0.25s;
-}
-.toast--show { opacity: 1; transform: translateY(0); }
